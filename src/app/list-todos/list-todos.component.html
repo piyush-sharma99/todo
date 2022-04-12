@@ -1,0 +1,24 @@
+<h1>My Todo's</h1>
+<div class="container">
+  <table class="table">
+    <caption>
+      My Todo's
+    </caption>
+    <thead>
+      <tr>
+        <th>Description</th>
+        <th>Target Date</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!--Angular way of looping through an array of objects and displaying them using angular ng tools-->
+      <tr *ngFor="let todo of todos">
+        <td>{{ todo.description }}</td>
+        <td>{{ todo.targetDate | date }}</td>
+        <!-- Can be used to format for example | uppercase-->
+        <td>{{ todo.done }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

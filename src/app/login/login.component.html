@@ -1,0 +1,11 @@
+<h1>Login!</h1>
+<div class="container">
+  <div class="alert alert-warning" *ngIf="inValidLogin">{{ message }}</div>
+  <!--*ngIf allows us to control when the element is displayed-->
+  <div>
+    User Name: <input type="text" name="username" [(ngModel)]="username" />
+    <!--ngModel allows for two way data binding that we can use to read updated values in component-->
+    Password: <input type="password" name="password" [(ngModel)]="password" />
+    <button class="button btn-success" (click)="handleLogin()">login</button>
+  </div>
+</div>
