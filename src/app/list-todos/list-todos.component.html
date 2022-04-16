@@ -1,14 +1,14 @@
 <h1>My Todo's</h1>
+<div class="alert alert-success" *ngIf="message">{{ message }}</div>
 <div class="container">
   <table class="table">
-    <caption>
-      My Todo's
-    </caption>
     <thead>
       <tr>
         <th>Description</th>
         <th>Target Date</th>
         <th>Status</th>
+        <th>Update!</th>
+        <th>Delete!</th>
       </tr>
     </thead>
     <tbody>
@@ -18,7 +18,20 @@
         <td>{{ todo.targetDate | date }}</td>
         <!-- Can be used to format for example | uppercase-->
         <td>{{ todo.done }}</td>
+        <td>
+          <button (click)="updateById(todo.id)" class="btn btn-success">
+            Update
+          </button>
+        </td>
+        <td>
+          <button (click)="deleteById(todo.id)" class="btn btn-warning">
+            Delete
+          </button>
+        </td>
       </tr>
     </tbody>
   </table>
+  <div class="row">
+    <button (click)="addTodo()" class="btn btn-success">Add New Todo!</button>
+  </div>
 </div>

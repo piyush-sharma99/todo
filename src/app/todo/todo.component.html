@@ -1,0 +1,34 @@
+<h1>ToDo</h1>
+<div class="container">
+  <div class="alert alert-warning" *ngIf="todoForm.invalid">
+    Enter Valid Values!
+  </div>
+  <form (ngSubmit)="!todoForm.invalid && saveTodo()" #todoForm="ngForm">
+    <!--Angular provides many built in featused for example this one creates a reference variable called todoForm for ngForm not we can call this and use its build in functions like cheking validation on fields by saying todoForm.invalid-->
+    <!--This will now look at all the extra validation params such as required, min/maxlength to be met beforw proceding to savveTodo()-->
+    <fieldset class="form-group">
+      <label>Description</label>
+
+      <input
+        class="form-control"
+        type="text"
+        name="description"
+        required="required"
+        [(ngModel)]="todo.description"
+      />
+    </fieldset>
+
+    <fieldset class="form-group">
+      <label>Target Date</label>
+      <!--The below ng model shows the fearture behinde banna box fuctionality. They have two purposes. for example one recieves the date [] and other passes it back ()-->
+      <input
+        class="form-control"
+        type="date"
+        required="required"
+        [ngModel]="todo.targetDate | date: 'yyyy-MM-dd'"
+        (ngModel)="(todo.targetDate)"
+      />
+    </fieldset>
+    <button type="submit" class="btn btn-success">Save</button>
+  </form>
+</div>

@@ -10,6 +10,8 @@ import { ListTodosComponent } from './list-todos/list-todos.component';
 import { MenuComponent } from './menu/menu.component';
 import { FooterComponent } from './footer/footer.component';
 import { LogoutComponent } from './logout/logout.component';
+import { HttpClientModule } from '@angular/common/http';
+import { TodoComponent } from './todo/todo.component';
 
 //where all the component modules are diclared/grouped
 @NgModule({
@@ -22,8 +24,9 @@ import { LogoutComponent } from './logout/logout.component';
     MenuComponent,
     FooterComponent,
     LogoutComponent,
+    TodoComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, FormsModule],
+  imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
   providers: [],
   bootstrap: [AppComponent],
 })

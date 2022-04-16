@@ -2,3 +2,12 @@
 <div class="container">
   You can manage your ToDos <a routerLink="/todos">here!</a>
 </div>
+<div class="container">
+  <button class="btn btn-success" (click)="getCustomMessageWithParameter()">
+    Get custom message here!
+  </button>
+</div>
+<div *ngIf="welcomeMessageFromService" class="container">
+  <h2>Your Customised Message is</h2>
+  {{ welcomeMessageFromService }}
+</div>
