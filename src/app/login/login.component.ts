@@ -40,7 +40,7 @@ export class LoginComponent implements OnInit {
 
   handleBasicAuthLogin() {
     this.basicAuthenticationService
-      .executeBasicAuthenticationService(this.username, this.password)
+      .executeJWTAuthenticationService(this.username, this.password)
       .subscribe(
         (response) => {
           console.log(response);

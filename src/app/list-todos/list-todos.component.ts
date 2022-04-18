@@ -47,7 +47,7 @@ export class ListTodosComponent implements OnInit {
 
   //method delets and retrieves data service to send a http request using httpClient
   deleteById(id: number) {
-    this.todoservice.DeleteTodos('PiyushSharma', id).subscribe((response) => {
+    this.todoservice.DeleteTodos('piyush', id).subscribe((response) => {
       this.message = 'Successful deletion!';
       this.getTodos();
     });
@@ -65,7 +65,7 @@ export class ListTodosComponent implements OnInit {
 
   //method uses retrieve data service to send a http request using httpClient
   getTodos() {
-    this.todoservice.RetrieveAllTodos('PiyushSharma').subscribe((response) => {
+    this.todoservice.RetrieveAllTodos('piyush').subscribe((response) => {
       console.log(response);
       this.todos = response;
     });

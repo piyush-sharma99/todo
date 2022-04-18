@@ -17,6 +17,26 @@ export class BasicAuthenticationService {
 
   authenticate(username: string, password: string) {}
 
+  executeJWTAuthenticationService(username: string, password: string) {
+    let basicAuthHeaderString =
+      'Basic ' + window.btoa(username + ':' + password); //window.btoa encrypts the spring in the base 64
+
+    return this.httpRequest
+      .post<any>(`${API_URL}/authenticate`, {
+        username,
+        password,
+      })
+      .pipe(
+        // This pipe menthod carries out an action once some one subscribes to the service
+        map((data) => {
+          sessionStorage.setItem(TOKEN, `Bearer ${data.token}`);
+          sessionStorage.setItem(AUTHENTICATED_USER, username);
+          return data;
+        })
+      ); //passing in the header
+    // The ` can be used to concat parameters as shown
+  }
+
   //This method when called takes in username and pass encrypts them and sends back a request with a header for authentication
   executeBasicAuthenticationService(username: string, password: string) {
     let basicAuthHeaderString =

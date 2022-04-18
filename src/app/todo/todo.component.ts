@@ -29,22 +29,22 @@ export class TodoComponent implements OnInit {
 
     if (this.id != -1) {
       this.todoService
-        .RetrieveTodos('PiyushSharma', this.id)
+        .RetrieveTodos('piyush', this.id)
         .subscribe((data) => (this.todo = data));
     }
   }
 
   saveTodo() {
-    if (this.id === -1) {
+    if (this.id == -1) {
       this.todoService
-        .AddTodos('PiyushSharma', this.id, this.todo)
+        .AddTodos('piyush', this.id, this.todo)
         .subscribe((response) => {
           console.log(response);
           this.router.navigate(['/todos']);
         });
     }
     this.todoService
-      .UpdateTodos('PiyushSharma', this.id, this.todo)
+      .UpdateTodos('piyush', this.id, this.todo)
       .subscribe((response) => {
         console.log(response);
         this.router.navigate(['/todos']);
